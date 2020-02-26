@@ -24,6 +24,7 @@ echo
 
 echo Please verify remote:
 git remote -v
+git push -u origin master
 echo
 
 echo Please verify your credentials:

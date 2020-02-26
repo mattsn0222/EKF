@@ -45,6 +45,12 @@ class KalmanFilter {
    * @param z The measurement at k+1
    */
   void UpdateEKF(const Eigen::VectorXd &z);
+  
+  /**
+   * Common update for both linear and extended KF
+   * @param y The error
+   */
+  void CommonUpdate(const Eigen::VectorXd &y);
 
   // state vector
   Eigen::VectorXd x_;
