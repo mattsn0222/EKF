@@ -23,10 +23,12 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
   if(estimations.size() != ground_truth.size()){
     cout << "Error during CalculateRMSE: Invalid estimation or ground_truth data" << endl;
     return rmse;
-  } else if (estimations.size() == 0){
+  }
+  if (estimations.size() == 0){
     cout << "Error during CalculateRMSE: Estimations vector is empty" << endl;
     return rmse;
-  } else if (ground_truth.size() == 0){
+  }
+  if (ground_truth.size() == 0){
     cout << "Error during CalculateRMSE: Ground truth vector is empty" << endl;
     return rmse;
   }
@@ -68,9 +70,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
   //pre-compute common variables to avoid repeated calculation
   float c1 = px*px+py*py;
   float c2 = sqrt(c1);
-  float c3 = (c1*c2);
-
-  //check division by zero
+  float c3 = (c1*c2);   //check division by zero
   if(fabs(c1) < 0.0001){
     cout << "ERROR - CalculateJacobian () - Division by Zero" << endl;
     return Hj;
